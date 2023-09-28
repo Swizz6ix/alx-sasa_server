@@ -1,0 +1,60 @@
+const projectModel = require("../../common/models/CurrentProject");
+
+module.exports = {
+  addProject: (req, res) => {
+    const { body } = req;
+    projectModel
+      .newProject(body)
+      .then((project) => {
+        return res.status(200).json({
+          status: true,
+          data: project.toJSON(),
+        });
+      })
+      .catch((error) => {
+        return res.status(500).json({
+          status: false,
+          error: error,
+        });
+      });
+  },
+
+  getAllProjects: (req, res) => {
+    projectModel
+      .findAllProjects(req.query)
+      .then((projects) => {
+        return res.status(200).json({
+          status: true,
+          data: projects,
+        });
+      })
+      .catch((error) => {
+        return res.status(500).json({
+          status: false,
+          error: error,
+        });
+      });
+  },
+
+  deleteProject: (req, res) => {
+    const {
+      params: { projectCode }
+    } = req;
+
+    projectModel.deleteProject({ projectCode: projectCode })
+      .then((numberOfEntriesDeleted) => {
+        return res.status(200).json({
+          status: true,
+          data: {
+            numberOfEntriesDeleted: numberOfEntriesDeleted
+          },
+        });
+      })
+      .catch((error) => {
+        return res.status(500).json({
+          status: false,
+          error: error
+        })
+      });
+  }
+};
