@@ -23,8 +23,6 @@ module.exports = {
     const {
       params: { quoteId },
     } = req;
-    console.log(req);
-    console.log({ id: quoteId });
     motivationModel
       .findQuote({ id: quoteId })
       .then((quote) => {
@@ -114,4 +112,4 @@ module.exports = {
         });
       });
   },
-};
+}

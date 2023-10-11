@@ -5,9 +5,6 @@ const path = require('path');
 module.exports = {
     uploadFiles: async ( req, res ) => {
         try {
-            console.log("req", req);
-            console.log("bodi", req.body.caption);
-
             if ( req.file === undefined ) {
                 return res.send(`You must select a file.`);
             };

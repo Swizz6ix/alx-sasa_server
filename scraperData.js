@@ -63,7 +63,7 @@ const scrapeData = {
             "projectCode": 311,
             "projectName": "0x1A. Application server",
             "startedOn": "Aug 25, 2023 6:00 AM",
-            "deadline": "Sep 21, 2023 6:00 Am"
+            "deadline": "Sep 25, 2023 6:00 Am"
         }
     ]
 };

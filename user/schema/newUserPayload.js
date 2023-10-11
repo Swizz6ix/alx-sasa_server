@@ -1,7 +1,6 @@
 const projectPayload = require("../../projects/schema/projectPayload")
 
 module.exports = {
-    // "$id": "https://swizz6ix.com/schemas/user.json",
     type: 'object',
     properties: {
         username: {
@@ -20,7 +19,7 @@ module.exports = {
     },
     required: [
         "username",
-        "avatar",
+        "email",
         "password"
     ],
 }
